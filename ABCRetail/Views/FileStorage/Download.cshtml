@@ -1,0 +1,17 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "Download File";
+}
+
+<h2>Download File</h2>
+
+<div class="alert alert-info">
+    You are about to download the file "@Model".
+</div>
+
+<form asp-action="Download" method="post">
+    <input type="hidden" name="fileName" value="@Model" />
+    <button type="submit" class="btn btn-primary">Download</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to File List</a>
+</form>

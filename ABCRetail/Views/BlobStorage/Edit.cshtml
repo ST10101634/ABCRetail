@@ -1,0 +1,26 @@
+﻿@model ABCRetail.Models.ImageEditModel
+
+@{
+    ViewData["Title"] = "Edit Image";
+}
+
+<h2>Edit Image</h2>
+
+<form asp-action="EditImage" enctype="multipart/form-data" method="post">
+    <input type="hidden" asp-for="BlobName" />
+    <div class="form-group">
+        <label>Current Image</label>
+        <img src="@Model.BlobUri" alt="Current Image" width="150" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewFileName">New File Name</label>
+        <input asp-for="NewFileName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="File">Select New Image</label>
+        <input asp-for="File" type="file" class="form-control-file" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>

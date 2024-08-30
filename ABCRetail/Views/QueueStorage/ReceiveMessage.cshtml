@@ -1,0 +1,14 @@
+﻿@model string
+
+<h2>Receive Message</h2>
+
+@if (string.IsNullOrEmpty(Model))
+{
+    <p>No messages in the queue.</p>
+}
+else
+{
+    <p>Message: @Model</p>
+}
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

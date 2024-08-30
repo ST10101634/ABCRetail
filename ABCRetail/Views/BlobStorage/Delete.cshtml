@@ -1,0 +1,19 @@
+﻿@model ABCRetail.Models.ImageDeleteModel
+
+@{
+    ViewData["Title"] = "Delete Image";
+}
+
+<h2>Delete Image</h2>
+
+<h3>Are you sure you want to delete this image?</h3>
+
+<form asp-action="DeleteImageConfirmed" method="post">
+    <input type="hidden" asp-for="BlobName" />
+    <div class="form-group">
+        <label>Image:</label>
+        <p>@Model.BlobName</p>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>

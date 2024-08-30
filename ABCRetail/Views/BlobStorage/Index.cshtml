@@ -1,0 +1,34 @@
+﻿@using System.IO
+@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Image List";
+}
+
+<h2>Image List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var imageUri in Model)
+        {
+            var fileName = System.IO.Path.GetFileName(imageUri);
+            <tr>
+                <td>
+                    <img src="@imageUri" alt="Image" width="150" />
+                </td>
+                <td>
+                    <a href="@Url.Action("EditImage", new { blobName = fileName })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("DeleteImage", new { blobName = fileName })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("UploadImage")" class="btn btn-success">Upload New Image</a>

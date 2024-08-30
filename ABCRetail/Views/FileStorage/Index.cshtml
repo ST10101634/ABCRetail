@@ -1,0 +1,32 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "File List";
+}
+
+<h2>File List</h2>
+
+<p>
+    <a asp-action="Upload" class="btn btn-primary">Upload New File</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fileName in Model)
+        {
+            <tr>
+                <td>@fileName</td>
+                <td>
+                    <a asp-action="Download" asp-route-fileName="@fileName" class="btn btn-info">Download</a>
+                    <a asp-action="Delete" asp-route-fileName="@fileName" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
